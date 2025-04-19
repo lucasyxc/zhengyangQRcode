@@ -1,0 +1,348 @@
+{
+    "groups": {
+        "group1": {
+            "name": "近视管理镜片",
+            "qrStyle": "style1",
+            "products": {
+                "爱眼星点矩阵1.60MR-8近视管理镜片": {
+                    "refraction": "1.598",
+                    "abbeNumber": "41",
+                    "code": "A"
+                },
+                "爱眼星点矩阵1.67近视管理镜片": {
+                    "refraction": "1.667",
+                    "abbeNumber": "32",
+                    "code": "B"
+                },
+                "爱眼星1.56多微透镜离焦专业版": {
+                    "refraction": "1.564",
+                    "abbeNumber": "38",
+                    "code": "C"
+                },
+                "爱眼星1.60双面复合多微透镜离焦镜片": {
+                    "refraction": "1.595",
+                    "abbeNumber": "32",
+                    "code": "D"
+                }
+            }
+        },
+        "group2": {
+            "name": "功能性镜片",
+            "qrStyle": "style2",
+            "products": {
+                "优点星1.60点矩阵管理镜片": {
+                    "brand": "优点星",
+                    "series": "PMDT点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.25, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "65mm" },
+                        { "powerRange": { "min": -6.00, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "75mm" },
+                        { "powerRange": { "min": -8.00, "max": -6.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "70mm" },
+                        { "powerRange": { "min": -10.00, "max": -8.25 }, "cylinderRange": { "min": -2.00, "max": 0.00 }, "dia": "70mm" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.25, "max": 0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.5mm" },
+                        { "powerRange": { "min": 1.00, "max": 1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.3mm" },
+                        { "powerRange": { "min": 1.75, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.1mm" },
+                        { "powerRange": { "min": -0.25, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "2.0mm" },
+                        { "powerRange": { "min": -0.50, "max": -0.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.8mm" },
+                        { "powerRange": { "min": -0.75, "max": -0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.6mm" },
+                        { "powerRange": { "min": -1.00, "max": -1.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.4mm" },
+                        { "powerRange": { "min": -10.00, "max": -1.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.2mm" }
+                    ],
+                    "refraction": "1.587",
+                    "abbeNumber": "33.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优点星1.60 MR-8PMDT点矩阵管理镜片": {
+                    "brand": "优点星",
+                    "series": "PMDT点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.25, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "65mm" },
+                        { "powerRange": { "min": -6.00, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "75mm" },
+                        { "powerRange": { "min": -8.00, "max": -6.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "70mm" },
+                        { "powerRange": { "min": -10.00, "max": -8.25 }, "cylinderRange": { "min": -2.00, "max": 0.00 }, "dia": "70mm" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.25, "max": 0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.5mm" },
+                        { "powerRange": { "min": 1.00, "max": 1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.3mm" },
+                        { "powerRange": { "min": 1.75, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.1mm" },
+                        { "powerRange": { "min": -0.25, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "2.0mm" },
+                        { "powerRange": { "min": -0.50, "max": -0.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.8mm" },
+                        { "powerRange": { "min": -0.75, "max": -0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.6mm" },
+                        { "powerRange": { "min": -1.00, "max": -1.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.4mm" },
+                        { "powerRange": { "min": -10.00, "max": -1.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.2mm" }
+                    ],
+                    "refraction": "1.597",
+                    "abbeNumber": "41.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "超发水绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优点星1.67 PMDT点矩阵管理镜片": {
+                    "brand": "优点星",
+                    "series": "PMDT点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.25, "max": 6.00 }, "cylinderRange": { "min": -2.00, "max": 0.00 }, "dia": "65mm" },
+                        { "powerRange": { "min": -6.00, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "75mm" },
+                        { "powerRange": { "min": -12.00, "max": -6.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "70mm" },
+                        { "powerRange": { "min": -8.00, "max": 0.00 }, "cylinderRange": { "min": -6.00, "max": -4.25 }, "dia": "70mm" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.25, "max": 0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.5mm" },
+                        { "powerRange": { "min": 1.00, "max": 1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.3mm" },
+                        { "powerRange": { "min": 1.75, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.1mm" },
+                        { "powerRange": { "min": -0.50, "max": -0.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.9mm" },
+                        { "powerRange": { "min": -0.75, "max": -0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.6mm" },
+                        { "powerRange": { "min": -1.00, "max": -1.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.4mm" },
+                        { "powerRange": { "min": -1.25, "max": -1.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.2mm" },
+                        { "powerRange": { "min": -15.00, "max": -1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.15mm" }
+                    ],
+                    "refraction": "1.667",
+                    "abbeNumber": "32.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "超发水绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优点星1.56多效点矩阵管理镜片": {
+                    "brand": "优点星",
+                    "series": "多效点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.00, "max": 0.00 }, "dia": "75mm" },
+                        { "powerRange": { "min": -1.00, "max": -0.25 }, "dia": "75mm" },
+                        { "powerRange": { "min": -2.00, "max": -1.25 }, "dia": "75mm" },
+                        { "powerRange": { "min": -6.00, "max": -2.25 }, "dia": "75mm" },
+                        { "powerRange": { "min": -10.00, "max": -6.25 }, "dia": "70mm" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.00, "max": 0.00 }, "ct": "2.0±0.3" },
+                        { "powerRange": { "min": -1.00, "max": -0.25 }, "ct": "1.8±0.3" },
+                        { "powerRange": { "min": -2.00, "max": -1.25 }, "ct": "1.6±0.3" },
+                        { "powerRange": { "min": -6.00, "max": -2.25 }, "ct": "1.4±0.3" },
+                        { "powerRange": { "min": -10.00, "max": -6.25 }, "ct": "1.2±0.3" }
+                    ],
+                    "refraction": "1.564",
+                    "abbeNumber": "37.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优点星1.60多效点矩阵管理镜片": {
+                    "brand": "优点星",
+                    "series": "多效点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.00, "max": 0.00 }, "dia": "75" },
+                        { "powerRange": { "min": -1.00, "max": -0.25 }, "dia": "75" },
+                        { "powerRange": { "min": -2.00, "max": -1.25 }, "dia": "75" },
+                        { "powerRange": { "min": -6.00, "max": -2.25 }, "dia": "75" },
+                        { "powerRange": { "min": -12.00, "max": -6.25 }, "dia": "72" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.00, "max": 0.00 }, "ct": "2.1±0.3" },
+                        { "powerRange": { "min": -1.00, "max": -0.25 }, "ct": "1.8±0.3" },
+                        { "powerRange": { "min": -2.00, "max": -1.25 }, "ct": "1.6±0.3" },
+                        { "powerRange": { "min": -6.00, "max": -2.25 }, "ct": "1.4±0.3" },
+                        { "powerRange": { "min": -12.00, "max": -6.25 }, "ct": "1.2±0.3" }
+                    ],
+                    "refraction": "1.595",
+                    "abbeNumber": "32.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优赞1.60点矩阵管理镜片": {
+                    "brand": "优赞",
+                    "series": "PMDT点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.25, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "65mm" },
+                        { "powerRange": { "min": -6.00, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "75mm" },
+                        { "powerRange": { "min": -8.00, "max": -6.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "70mm" },
+                        { "powerRange": { "min": -10.00, "max": -8.25 }, "cylinderRange": { "min": -2.00, "max": 0.00 }, "dia": "70mm" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.25, "max": 0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.5mm" },
+                        { "powerRange": { "min": 1.00, "max": 1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.3mm" },
+                        { "powerRange": { "min": 1.75, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.1mm" },
+                        { "powerRange": { "min": -0.25, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "2.0mm" },
+                        { "powerRange": { "min": -0.50, "max": -0.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.8mm" },
+                        { "powerRange": { "min": -0.75, "max": -0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.6mm" },
+                        { "powerRange": { "min": -1.00, "max": -1.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.4mm" },
+                        { "powerRange": { "min": -10.00, "max": -1.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.2mm" }
+                    ],
+                    "refraction": "1.587",
+                    "abbeNumber": "33.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优赞1.60 MR-8PMDT点矩阵管理镜片": {
+                    "brand": "优赞",
+                    "series": "PMDT点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.25, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "65mm" },
+                        { "powerRange": { "min": -6.00, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "75mm" },
+                        { "powerRange": { "min": -8.00, "max": -6.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "70mm" },
+                        { "powerRange": { "min": -10.00, "max": -8.25 }, "cylinderRange": { "min": -2.00, "max": 0.00 }, "dia": "70mm" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.25, "max": 0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.5mm" },
+                        { "powerRange": { "min": 1.00, "max": 1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.3mm" },
+                        { "powerRange": { "min": 1.75, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.1mm" },
+                        { "powerRange": { "min": -0.25, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "2.0mm" },
+                        { "powerRange": { "min": -0.50, "max": -0.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.8mm" },
+                        { "powerRange": { "min": -0.75, "max": -0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.6mm" },
+                        { "powerRange": { "min": -1.00, "max": -1.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.4mm" },
+                        { "powerRange": { "min": -10.00, "max": -1.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.2mm" }
+                    ],
+                    "refraction": "1.597",
+                    "abbeNumber": "41.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "超发水绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优赞1.67 PMDT点矩阵管理镜片": {
+                    "brand": "优赞",
+                    "series": "PMDT点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.25, "max": 6.00 }, "cylinderRange": { "min": -2.00, "max": 0.00 }, "dia": "65mm" },
+                        { "powerRange": { "min": -6.00, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "75mm" },
+                        { "powerRange": { "min": -12.00, "max": -6.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "70mm" },
+                        { "powerRange": { "min": -8.00, "max": 0.00 }, "cylinderRange": { "min": -6.00, "max": -4.25 }, "dia": "70mm" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.25, "max": 0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.5mm" },
+                        { "powerRange": { "min": 1.00, "max": 1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.3mm" },
+                        { "powerRange": { "min": 1.75, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.1mm" },
+                        { "powerRange": { "min": -0.50, "max": -0.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.9mm" },
+                        { "powerRange": { "min": -0.75, "max": -0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.6mm" },
+                        { "powerRange": { "min": -1.00, "max": -1.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.4mm" },
+                        { "powerRange": { "min": -1.25, "max": -1.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.2mm" },
+                        { "powerRange": { "min": -15.00, "max": -1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.15mm" }
+                    ],
+                    "refraction": "1.667",
+                    "abbeNumber": "32.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "超发水绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优赞1.56多效点矩阵管理镜片": {
+                    "brand": "优赞",
+                    "series": "多效点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.00, "max": 0.00 }, "dia": "75mm" },
+                        { "powerRange": { "min": -1.00, "max": -0.25 }, "dia": "75mm" },
+                        { "powerRange": { "min": -2.00, "max": -1.25 }, "dia": "75mm" },
+                        { "powerRange": { "min": -6.00, "max": -2.25 }, "dia": "75mm" },
+                        { "powerRange": { "min": -10.00, "max": -6.25 }, "dia": "70mm" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.00, "max": 0.00 }, "ct": "2.0±0.3" },
+                        { "powerRange": { "min": -1.00, "max": -0.25 }, "ct": "1.8±0.3" },
+                        { "powerRange": { "min": -2.00, "max": -1.25 }, "ct": "1.6±0.3" },
+                        { "powerRange": { "min": -6.00, "max": -2.25 }, "ct": "1.4±0.3" },
+                        { "powerRange": { "min": -10.00, "max": -6.25 }, "ct": "1.2±0.3" }
+                    ],
+                    "refraction": "1.564",
+                    "abbeNumber": "37.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                },
+                "优赞1.60多效点矩阵管理镜片": {
+                    "brand": "优赞",
+                    "series": "多效点矩阵系列",
+                    "diameter": [
+                        { "powerRange": { "min": 0.00, "max": 0.00 }, "dia": "75" },
+                        { "powerRange": { "min": -1.00, "max": -0.25 }, "dia": "75" },
+                        { "powerRange": { "min": -2.00, "max": -1.25 }, "dia": "75" },
+                        { "powerRange": { "min": -6.00, "max": -2.25 }, "dia": "75" },
+                        { "powerRange": { "min": -12.00, "max": -6.25 }, "dia": "72" }
+                    ],
+                    "centerThickness": [
+                        { "powerRange": { "min": 0.00, "max": 0.00 }, "ct": "2.1±0.3" },
+                        { "powerRange": { "min": -1.00, "max": -0.25 }, "ct": "1.8±0.3" },
+                        { "powerRange": { "min": -2.00, "max": -1.25 }, "ct": "1.6±0.3" },
+                        { "powerRange": { "min": -6.00, "max": -2.25 }, "ct": "1.4±0.3" },
+                        { "powerRange": { "min": -12.00, "max": -6.25 }, "ct": "1.2±0.3" }
+                    ],
+                    "refraction": "1.595",
+                    "abbeNumber": "32.00",
+                    "transmittance": "UV-1/0类",
+                    "coating": "绿膜",
+                    "standard": ["GB/T2506-2017", "GB10810.3-2006"]
+                }
+            }
+        }
+    },
+    "technicalParams": {
+        "爱眼星点矩阵1.60MR-8近视管理镜片": {
+            "dia": [
+                { "powerRange": { "min": 0.25, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "65mm" },
+                { "powerRange": { "min": -6.00, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "75mm" },
+                { "powerRange": { "min": -8.00, "max": -6.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "70mm" },
+                { "powerRange": { "min": -10.00, "max": -8.25 }, "cylinderRange": { "min": -2.00, "max": 0.00 }, "dia": "70mm" }
+            ],
+            "thickness": [
+                { "powerRange": { "min": 0.25, "max": 0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.5mm" },
+                { "powerRange": { "min": 1.00, "max": 1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.3mm" },
+                { "powerRange": { "min": 1.75, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.1mm" },
+                { "powerRange": { "min": -0.25, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "2.0mm" },
+                { "powerRange": { "min": -0.50, "max": -0.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.8mm" },
+                { "powerRange": { "min": -0.75, "max": -0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.6mm" },
+                { "powerRange": { "min": -1.00, "max": -1.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.4mm" },
+                { "powerRange": { "min": -10.00, "max": -1.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.2mm" }
+            ]
+        },
+        "爱眼星点矩阵1.67近视管理镜片": {
+            "dia": [
+                { "powerRange": { "min": 0.25, "max": 6.00 }, "cylinderRange": { "min": -2.00, "max": 0.00 }, "dia": "65mm" },
+                { "powerRange": { "min": -6.00, "max": 0.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "75mm" },
+                { "powerRange": { "min": -12.00, "max": -6.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "dia": "70mm" },
+                { "powerRange": { "min": -8.00, "max": 0.00 }, "cylinderRange": { "min": -6.00, "max": -4.25 }, "dia": "70mm" }
+            ],
+            "thickness": [
+                { "powerRange": { "min": 0.25, "max": 0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.5mm" },
+                { "powerRange": { "min": 1.00, "max": 1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.3mm" },
+                { "powerRange": { "min": 1.75, "max": 6.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "et": "1.1mm" },
+                { "powerRange": { "min": -0.50, "max": -0.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.9mm" },
+                { "powerRange": { "min": -0.75, "max": -0.75 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.6mm" },
+                { "powerRange": { "min": -1.00, "max": -1.00 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.4mm" },
+                { "powerRange": { "min": -1.25, "max": -1.25 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.2mm" },
+                { "powerRange": { "min": -15.00, "max": -1.50 }, "cylinderRange": { "min": -4.00, "max": 0.00 }, "ct": "1.15mm" }
+            ]
+        },
+        "爱眼星1.56多微透镜离焦专业版": {
+            "dia": [
+                { "powerRange": { "min": 0.00, "max": 0.00 }, "dia": "75mm", "ct": "2.0±0.3" },
+                { "powerRange": { "min": -1.00, "max": -0.25 }, "dia": "75mm", "ct": "1.8±0.3" },
+                { "powerRange": { "min": -2.00, "max": -1.25 }, "dia": "75mm", "ct": "1.6±0.3" },
+                { "powerRange": { "min": -6.00, "max": -2.25 }, "dia": "75mm", "ct": "1.4±0.3" },
+                { "powerRange": { "min": -10.00, "max": -6.25 }, "dia": "70mm", "ct": "1.2±0.3" }
+            ],
+            "thickness": [
+                { "powerRange": { "min": 0.00, "max": 0.00 }, "ct": "2.0±0.3" },
+                { "powerRange": { "min": -1.00, "max": -0.25 }, "ct": "1.8±0.3" },
+                { "powerRange": { "min": -2.00, "max": -1.25 }, "ct": "1.6±0.3" },
+                { "powerRange": { "min": -6.00, "max": -2.25 }, "ct": "1.4±0.3" },
+                { "powerRange": { "min": -10.00, "max": -6.25 }, "ct": "1.2±0.3" }
+            ]
+        },
+        "爱眼星1.60双面复合多微透镜离焦镜片": {
+            "dia": [
+                { "powerRange": { "min": 0.00, "max": 0.00 }, "dia": "75" },
+                { "powerRange": { "min": -1.00, "max": -0.25 }, "dia": "75" },
+                { "powerRange": { "min": -2.00, "max": -1.25 }, "dia": "75" },
+                { "powerRange": { "min": -6.00, "max": -2.25 }, "dia": "75" },
+                { "powerRange": { "min": -12.00, "max": -6.25 }, "dia": "72" }
+            ],
+            "thickness": [
+                { "powerRange": { "min": 0.00, "max": 0.00 }, "ct": "2.1±0.3" },
+                { "powerRange": { "min": -1.00, "max": -0.25 }, "ct": "1.8±0.3" },
+                { "powerRange": { "min": -2.00, "max": -1.25 }, "ct": "1.6±0.3" },
+                { "powerRange": { "min": -6.00, "max": -2.25 }, "ct": "1.4±0.3" },
+                { "powerRange": { "min": -12.00, "max": -6.25 }, "ct": "1.2±0.3" }
+            ]
+        }
+    }
+} 
