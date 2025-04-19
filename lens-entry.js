@@ -816,8 +816,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const firstImage = modalBody.querySelector('img');
         const qrStyle = firstImage.dataset.qrStyle || 'style1';
         
-        // 根据样式设置不同的打印尺寸
+        // 根据样式设置不同的打印尺寸和旋转角度
         const printSize = qrStyle === 'style1' ? '70mm 50mm' : '75mm 50mm';
+        const rotateAngle = qrStyle === 'style1' ? '0deg' : '90deg';
         
         // 创建打印样式
         const printStyle = `
@@ -848,6 +849,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         max-width: 100%;
                         max-height: 100%;
                         object-fit: contain;
+                        transform: rotate(${rotateAngle});
                     }
                     @page {
                         size: ${printSize};
