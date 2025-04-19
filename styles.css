@@ -1,0 +1,258 @@
+/* 模态窗口样式 */
+.modal {
+    display: none; /* 隐藏 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* 更深的背景色 */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* 隐藏表格样式 */
+#lens-data {
+    display: none;
+}
+
+/* 页面样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.sidebar {
+    width: 200px;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 1rem 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-content {
+    margin-left: 220px;
+    padding: 1rem;
+    width: 100%;
+}
+
+.lens-entry {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative; /* 让删除按钮相对定位 */
+}
+
+.lens-entry button.remove-lens {
+    align-self: flex-end;
+    padding: 0.5rem 1rem;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.lens-entry button.remove-lens:hover {
+    background-color: #c82333;
+}
+
+button {
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.batch-grid {
+    display: grid;
+    grid-template-columns: repeat(22, 1fr); /* 22列等宽分布 */
+    grid-template-rows: repeat(46, 1fr); /* 46行等高分布 */
+    gap: 2px; /* 单元格之间的间隙 */
+    margin-top: 20px;
+    overflow: auto; /* 添加滚动条 */
+    max-height: 400px; /* 限制表格高度 */
+    position: relative; /* 使 sticky 定位生效 */
+}
+
+/* 轴标签样式（首行和首列） */
+.batch-grid .axis-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* 确保边框包含在大小内 */
+    position: sticky;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+/* 固定第一列和左上角 */
+.batch-grid .axis-label:nth-child(22n+1) {
+    left: 0;
+    z-index: 3; /* 使首列标签位于首行标签之上 */
+}
+
+/* 固定第一行和左上角 */
+.batch-grid .axis-label:nth-child(-n+22) {
+    top: 0;
+    z-index: 4; /* 使首行标签位于首列标签之上 */
+}
+
+/* 单元格样式 */
+.batch-grid .batch-cell {
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    padding: 5px;
+    box-sizing: border-box; /* 确保边框和内边距包含在大小内 */
+    width: 100%;
+    height: 100%;
+}
+
+/* 焦点状态样式 */
+.batch-cell:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #eef;
+}
+
+/* 悬停状态样式 */
+.batch-cell:hover {
+    background-color: #f0f8ff;
+}
+
+/* 选中状态样式 */
+.batch-cell.selected {
+    background-color: #d1e7fd;
+    border-color: #0056b3;
+}
+
+
+
+
+
+
+
+.print-item {
+    width: 2cm;
+    height: 2cm;
+    border: 1px solid #000;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.qr-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 5px;
+}
+
+.print-text p {
+    margin: 0;
+    text-align: center;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #results, #results * {
+        visibility: visible;
+    }
+    #results {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+
