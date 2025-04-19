@@ -1,234 +1,121 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>镜片信息二维码生成器</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- 引入 qrcode.js 库 -->
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <title>镜片录入系统</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="bootstrap-icons.css" rel="stylesheet">
+    <!-- JsBarcode -->
+    <script src="JsBarcode.all.min.js"></script>
+    <!-- QRCode -->
+
+    <!-- XLSX -->
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="bootstrap.bundle.min.js"></script>
+    <style>
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>镜片信息二维码生成器</h1>
-        
-        <form id="lensForm">
-            <div class="form-group">
-                <label for="brand">品牌</label>
-                <select id="brand" required>
-                    <option value="">请选择品牌</option>
-                    <option value="优点星">优点星</option>
-                    <option value="优赞">优赞</option>
-                </select>
-            </div>
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/lens_entry/">镜片录入</a></li>
+                    <li><a href="/dealer_manage/">代理商管理</a></li>
+                    <li><a href="/sales">盘库出货</a></li>
+                    <li><a href="/lensreturn">镜片退货</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <h1>镜片录入</h1>
+            <button type="button" id="batch-upload">批量录入</button>
 
-            <div class="form-group">
-                <label for="series">系列</label>
-                <select id="series" required>
-                    <option value="">请选择系列</option>
-                </select>
-            </div>
+            <form id="lens-entry-form">
+                <div class="lens-entry">
+                    <label for="product-name-0">品名:</label>
+                    <select id="product-name-0" name="product-name" required></select>
 
-            <div class="form-group">
-                <label for="product">产品名称</label>
-                <select id="product" required>
-                    <option value="">请选择产品</option>
-                </select>
-            </div>
+                    <label for="spherical-0">球镜度数:</label>
+                    <input type="text" id="spherical-0" name="spherical" required>
 
-            <div class="power-inputs">
-                <div class="form-group">
-                    <label for="sphere">球镜度数</label>
-                    <input type="number" id="sphere" step="0.25" min="-20" max="20" required>
+                    <label for="cylinder-0">柱镜度数:</label>
+                    <input type="text" id="cylinder-0" name="cylinder" required>
+
+                    <label for="quantity-0">数量:</label>
+                    <input type="number" id="quantity-0" name="quantity" value="1" min="1" required>
                 </div>
-
-                <div class="form-group">
-                    <label for="cylinder">柱镜度数</label>
-                    <input type="number" id="cylinder" step="0.25" min="-6" max="0" required>
-                </div>
-            </div>
-
-            <button type="submit">生成二维码</button>
-        </form>
+                <button type="button" id="add-lens">新增条目</button>
+                <button type="submit">提交</button>
+            </form>
+            <button type="button" id="view-qrcodes">查看二维码图片</button>
+            <div id="results" style="display: none;"></div>
+        </main>
     </div>
 
-    <!-- Modal -->
-    <div id="qrModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2>镜片信息二维码</h2>
-            <div id="qrcode"></div>
-            <div class="modal-buttons">
-                <button id="printBtn">打印二维码</button>
+    <!-- 批量录入模态窗口 -->
+    <div id="modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">批量录入</h5>
+                    <button type="button" id="excel">excel导入</button>
+                </div>
+
+                <div class="modal-body">
+                    <label for="batch-product-name">品名:</label>
+                    <select id="batch-product-name"></select>
+                    <div id="batch-grid" class="batch-grid"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" id="batch-submit" class="btn btn-primary">提交</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // 产品映射数据
-        const productMapping = {
-            "优点星": {
-                "点矩阵系列": [
-                    "1.60点矩阵近视管理镜片",
-                    "1.60 MR-9点矩阵近视管理镜片",
-                    "1.67 点矩阵近视管理镜片"
-                ],
-                "多效点矩阵系列": [
-                    "1.56多效点矩阵近视管理镜片",
-                    "1.60多效点矩阵近视管理镜片"
-                ],
-                "多微透镜离焦系列": [
-                    "1.56多微透镜离焦-专业版",
-                    "1.60多微透镜离焦-专业版",
-                    "1.56防蓝光多微透镜离焦-专业版",
-                    "1.60防蓝光多微透镜离焦-专业版"
-                ]
-            },
-            "优赞": {
-                "点矩阵系列": [
-                    "1.60点矩阵近视管理镜片",
-                    "1.60 MR-9点矩阵近视管理镜片",
-                    "1.67 点矩阵近视管理镜片"
-                ],
-                "多效点矩阵系列": [
-                    "1.56多效点矩阵近视管理镜片",
-                    "1.60多效点矩阵近视管理镜片"
-                ],
-                "多微透镜离焦系列": [
-                    "1.56多微透镜离焦-专业版",
-                    "1.60多微透镜离焦-专业版",
-                    "1.56防蓝光多微透镜离焦-专业版",
-                    "1.60防蓝光多微透镜离焦-专业版"
-                ]
-            }
-        };
+    <!-- 查看二维码图片的模态窗口 -->
+    <div id="view-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">二维码图片</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="qrcode-images"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" id="print-all-qrcodes" class="btn btn-primary">打印</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // 格式化度数为保留两位小数
-        function formatPower(value) {
-            return Number(value).toFixed(2);
-        }
+    <!-- 用于生成条形码的临时元素 -->
+    <svg id="barcode" style="display: none;"></svg>
 
-        // 品牌选择变化时更新系列选项
-        document.getElementById('brand').addEventListener('change', function() {
-            const brand = this.value;
-            const seriesSelect = document.getElementById('series');
-            const productSelect = document.getElementById('product');
-            
-            // 清空系列和产品选项
-            seriesSelect.innerHTML = '<option value="">请选择系列</option>';
-            productSelect.innerHTML = '<option value="">请选择产品</option>';
-            
-            if (brand) {
-                // 添加对应品牌的系列选项
-                Object.keys(productMapping[brand]).forEach(series => {
-                    const option = document.createElement('option');
-                    option.value = series;
-                    option.textContent = series;
-                    seriesSelect.appendChild(option);
-                });
-            }
-        });
+    <!-- 第三方库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
 
-        // 系列选择变化时更新产品选项
-        document.getElementById('series').addEventListener('change', function() {
-            const brand = document.getElementById('brand').value;
-            const series = this.value;
-            const productSelect = document.getElementById('product');
-            
-            // 清空产品选项
-            productSelect.innerHTML = '<option value="">请选择产品</option>';
-            
-            if (brand && series) {
-                // 添加对应系列的产品选项
-                productMapping[brand][series].forEach(product => {
-                    const option = document.createElement('option');
-                    option.value = product;
-                    option.textContent = product;
-                    productSelect.appendChild(option);
-                });
-            }
-        });
-
-        // Modal 控制
-        const modal = document.getElementById('qrModal');
-        const closeBtn = document.querySelector('.close-modal');
-
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        // 创建QR码生成器实例
-        let qrcode = null;
-
-        document.getElementById('lensForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const sphereValue = document.getElementById('sphere').value;
-            const cylinderValue = document.getElementById('cylinder').value;
-
-            const lensData = {
-                brand: document.getElementById('brand').value,
-                series: document.getElementById('series').value,
-                product: document.getElementById('product').value,
-                sphere: formatPower(sphereValue),
-                cylinder: formatPower(cylinderValue)
-            };
-
-            const jsonString = JSON.stringify(lensData);
-            const url = `https://lucasyxc.github.io/jingzhiguanwang/?data=${encodeURIComponent(jsonString)}`;
-            
-            // 清除之前的二维码
-            const qrcodeElement = document.getElementById('qrcode');
-            qrcodeElement.innerHTML = '';
-            
-            // 如果已经存在实例，先清除
-            if (qrcode) {
-                qrcode.clear();
-            }
-            
-            // 创建新的二维码实例
-            qrcode = new QRCode(qrcodeElement, {
-                text: url,
-                width: 200,
-                height: 200,
-                colorDark: "#000000",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
-
-            // 等待二维码生成完成后，移除canvas元素
-            setTimeout(() => {
-                const canvas = qrcodeElement.querySelector('canvas');
-                if (canvas) {
-                    canvas.remove();
-                }
-            }, 100);
-
-            // 显示 Modal
-            modal.style.display = 'block';
-        });
-
-        document.getElementById('printBtn').addEventListener('click', function() {
-            // 打印前输出调试信息
-            const qrcodeElement = document.getElementById('qrcode');
-            console.log('QR码容器内的所有元素:', qrcodeElement.innerHTML);
-            console.log('Canvas元素:', qrcodeElement.querySelector('canvas'));
-            console.log('图片元素:', qrcodeElement.querySelector('img'));
-            
-            // 检查所有可见元素
-            const visibleElements = Array.from(document.querySelectorAll('*'))
-                .filter(el => window.getComputedStyle(el).visibility !== 'hidden');
-            console.log('打印时可见的元素:', visibleElements);
-
-            window.print();
-        });
-    </script>
+    <!-- 项目资源文件 -->
+    <script src="../static/js/lens-entry.js"></script>
+    <script src="lens-entry.js"></script>
+    <script src="../static/js/QRcode.js"></script>
+    <script src="js/QRcode.js"></script>
+    <script src="../static/js/QRcode1.js"></script>
+    <script src="QRcode1.js"></script>
+    <script src="../static/js/lens_mapping.json"></script>
+    <script src="lens_mapping.json"></script>
+    <script src="../static/js/lens-entry-group2.js"></script>
+    <script src="lens-entry-group2.js"></script>
 </body>
 </html>
