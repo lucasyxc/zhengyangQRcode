@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const contentHeight = (canvasHeight / 3) * 2;
         const qrSize = contentHeight * 0.6 * 0.9;  // 缩小至90%
         const qrX = canvasWidth - qrSize - 15 * scale;  // 向左移动15px
-        const qrY = canvasHeight - qrSize - 15 * scale - (contentHeight * 0.045 * 1.5) - 20 * scale;  // 向上移动15px
+        const qrY = canvasHeight - qrSize - 5 * scale - (contentHeight * 0.045 * 1.5) - 20 * scale;  // 向下移动10px（原来是-15，改为-5）
 
         // 创建条形码
         const barcodeCanvas = document.createElement('canvas');
@@ -258,22 +258,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.restore();
 
                 // 下半部分内容
-                const lowerFontSize = fontSize * 0.72;  // 再缩小20%
+                const lowerFontSize = fontSize * 0.82;  // 增大字体（原来是0.72）
                 ctx.font = `bold ${lowerFontSize * 1.2}px SimHei`;  // 产品名称字体
                 const productNameY = headerHeight + lowerFontSize * 2;
-                ctx.fillText(lens.product_name, canvasWidth * 0.05, productNameY);
+                ctx.fillText(lens.product_name, canvasWidth * 0.03, productNameY);  // 向左移动（原来是0.05）
 
                 // 设置参数字体
                 ctx.font = `${lowerFontSize * 0.9}px SimHei`;
                 
                 // 参数布局
-                const leftX = canvasWidth * 0.05;
-                const rightX = canvasWidth * 0.45;  // 两列基准间距
+                const leftX = canvasWidth * 0.03;  // 向左移动（原来是0.05）
+                const rightX = canvasWidth * 0.43;  // 向左移动（原来是0.45）
                 const startY = productNameY + lowerFontSize * 2;
                 const lineHeight = lowerFontSize * 1.5;
 
                 // 为第一行和第二行创建特殊的右侧起始位置（间隔缩短一半）
-                const specialRightX = canvasWidth * 0.33;  // 0.05 + (0.45-0.05)/2
+                const specialRightX = canvasWidth * 0.31;  // 向左移动（原来是0.33）
 
                 // 格式化生产日期，去掉"-"
                 const formattedDate = lens.production_date.replace(/-/g, '');
