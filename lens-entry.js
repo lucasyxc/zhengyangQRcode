@@ -21,16 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 根据organization_id过滤可选的镜片组
     const getFilteredGroups = () => {
-        if (organizationId === '1') {
-            // 只显示group1的镜片
-            return { group1: groups.group1 };
-        } else if (organizationId === '4') {
-            // 只显示group2的镜片
-            return { group2: groups.group2 };
-        } else {
-            // 显示所有镜片
-            return groups;
-        }
+        // 只返回 group2 的镜片
+        return { group2: groups.group2 };
     };
 
     // 从JSON文件加载数据
@@ -187,9 +179,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const qrContent = `http://plmsys.aiforoptometry.com/detail?serial_number=${encodeURIComponent(serial_number)}`;
 
-        const scale = 2; // 缩放比例，设置为2倍分辨率
-        const canvasWidth = 375 * scale; // 实际宽度乘以缩放比例
-        const canvasHeight = 250 * scale; // 实际高度乘以缩放比例
+        const scale = 3; // 增加缩放比例以提高清晰度
+        const canvasWidth = 710; // 对应71mm（考虑2mm边距）
+        const canvasHeight = 460; // 对应46mm（考虑2mm边距）
         const canvas = document.createElement('canvas');
         canvas.width = canvasWidth;
         canvas.height = canvasHeight;
@@ -197,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const headerHeight = canvasHeight / 3;
         const contentHeight = (canvasHeight / 3) * 2;
-        const qrSize = contentHeight * 0.6; // 二维码大小为参数区域高度的60%
-        const qrX = canvasWidth - qrSize - 10 * scale; // 二维码在画布右下角
-        const qrY = canvasHeight - qrSize - 10 * scale; // 二维码在画布右下角
+        const qrSize = contentHeight * 0.6;
+        const qrX = canvasWidth - qrSize - 20;
+        const qrY = canvasHeight - qrSize - 20;
 
         const qrCanvas = document.createElement('canvas');
         qrCanvas.width = qrSize;
@@ -286,8 +278,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const img = new Image();
             img.src = canvas.toDataURL();
-            img.width = 375; // 设置显示宽度
-            img.height = 250; // 设置显示高度
+            img.width = 710; // 设置显示宽度为71mm对应的像素
+            img.height = 460; // 设置显示高度为46mm对应的像素
             img.style.margin = '5px';
 
             console.log('Image generated for modal:', img);
@@ -314,18 +306,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 输出格式化后的数据
             console.log('格式化后的数据:', JSON.stringify(formattedData, null, 2));
-            console.log('提交到后端接口: http://plmsys.aiforoptometry.com/add_lenses/');
+            console.log('模拟提交到后端接口: http://plmsys.aiforoptometry.com/add_lenses/');
 
-            // 模拟成功响应
-            console.log('模拟提交成功，返回数据:', {
-                success: true,
-                message: '提交成功',
-                data: formattedData
-            });
-
-            return { success: true, message: '提交成功', data: formattedData };
-
-            /* 注释掉原有的提交逻辑
+            // 注释掉实际的后端提交代码
+            /*
             const response = await fetch('http://plmsys.aiforoptometry.com/add_lenses/', {
                 method: 'POST',
                 headers: {
@@ -342,10 +326,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (result.error) {
                 throw new Error(result.error);
             }
-
-            console.log('提交成功，后端返回:', JSON.stringify(result, null, 2));
-            return result;
             */
+
+            // 模拟成功响应
+            const mockResult = {
+                success: true,
+                message: '提交成功（测试模式）',
+                data: formattedData
+            };
+            console.log('模拟提交成功，返回数据:', JSON.stringify(mockResult, null, 2));
+            return mockResult;
         } catch (error) {
             console.error('提交失败:', error);
             throw error;
@@ -370,18 +360,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 输出格式化后的数据
             console.log('格式化后的数据:', JSON.stringify(formattedData, null, 2));
-            console.log('提交到后端接口: http://plmsys.aiforoptometry.com/add_lenses/');
+            console.log('模拟提交到后端接口: http://plmsys.aiforoptometry.com/add_lenses/');
 
-            // 模拟成功响应
-            console.log('模拟批量提交成功，返回数据:', {
-                success: true,
-                message: '批量提交成功',
-                data: formattedData
-            });
-
-            return { success: true, message: '批量提交成功', data: formattedData };
-
-            /* 注释掉原有的提交逻辑
+            // 注释掉实际的后端提交代码
+            /*
             const response = await fetch('http://plmsys.aiforoptometry.com/add_lenses/', {
                 method: 'POST',
                 headers: {
@@ -398,10 +380,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (result.error) {
                 throw new Error(result.error);
             }
-
-            console.log('批量提交成功，后端返回:', JSON.stringify(result, null, 2));
-            return result;
             */
+
+            // 模拟成功响应
+            const mockResult = {
+                success: true,
+                message: '批量提交成功（测试模式）',
+                data: formattedData
+            };
+            console.log('模拟批量提交成功，返回数据:', JSON.stringify(mockResult, null, 2));
+            return mockResult;
         } catch (error) {
             console.error('批量提交失败:', error);
             throw error;
@@ -812,13 +800,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const printWindow = window.open('', '_blank');
         const modalBody = document.getElementById('qrcode-images');
         
-        // 获取第一个图片的样式类型
-        const firstImage = modalBody.querySelector('img');
-        const qrStyle = firstImage.dataset.qrStyle || 'style1';
-        
-        // 根据样式设置不同的打印尺寸和旋转角度
-        const printSize = qrStyle === 'style1' ? '70mm 50mm' : '75mm 50mm';
-        const rotateAngle = qrStyle === 'style1' ? '0deg' : '90deg';
+        // 计算每行显示的图片数量
+        const images = modalBody.querySelectorAll('img');
+        const imagesPerRow = Math.min(3, images.length); // 每行最多显示3张图片
         
         // 创建打印样式
         const printStyle = `
@@ -832,28 +816,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                        gap: 0;
+                        padding: 2mm;
                     }
                     .print-item {
-                        width: 100%;
-                        height: 100%;
+                        width: 71mm;  /* 75mm纸张宽度减去边距 */
+                        height: 46mm; /* 50mm纸张高度减去边距 */
+                        text-align: center;
                         page-break-after: always;
                         display: flex;
-                        justify-content: center;
                         align-items: center;
-                    }
-                    .print-item:last-child {
-                        page-break-after: avoid;
+                        justify-content: center;
                     }
                     img {
-                        max-width: 100%;
-                        max-height: 100%;
+                        width: 100%;
+                        height: 100%;
                         object-fit: contain;
-                        transform: rotate(${rotateAngle});
                     }
                     @page {
-                        size: ${printSize};
-                        margin: 0;
+                        size: 75mm 50mm;
+                        margin: 2mm;
                     }
                 }
             </style>
@@ -861,7 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 创建打印内容
         let printContent = '<div class="print-container">';
-        modalBody.querySelectorAll('img').forEach(img => {
+        images.forEach(img => {
             printContent += `
                 <div class="print-item">
                     ${img.outerHTML}
