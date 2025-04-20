@@ -116,15 +116,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 生成样式2二维码
     const generateStyle2QRCode = (lens, callback) => {
+        // 产品名称映射表
+        const productNameMap = {
+            "优点星1.60点矩阵管理镜片": "1",
+            "优点星1.60 MR-8PMDT点矩阵管理镜片": "2",
+            "优点星1.67 PMDT点矩阵管理镜片": "3",
+            "优点星1.56多效点矩阵管理镜片": "4",
+            "优点星1.60多效点矩阵管理镜片": "5",
+            "优赞1.60点矩阵管理镜片": "6",
+            "优赞1.60 MR-8PMDT点矩阵管理镜片": "7",
+            "优赞1.67 PMDT点矩阵管理镜片": "8",
+            "优赞1.56多效点矩阵管理镜片": "9",
+            "优赞1.60多效点矩阵管理镜片": "10"
+        };
+
         // 构建简化的数据字符串
         const simpleData = [
-            lens.product_name,          // 产品名称
+            productNameMap[lens.product_name] || lens.product_name,  // 使用编码后的产品名称
             lens.spherical,             // 球镜
             lens.cylinder,              // 柱镜
-            lens.production_date.replace(/-/g, ''),  // 生产日期（去掉横杠）
-            lens.serial_number,         // 序列号
-            lens.centerThickness,       // 中心厚度
-            lens.diameter               // 直径
+            lens.serial_number          // 序列号
         ].join('|');
 
         // 构建简化的URL
@@ -141,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerHeight = canvasHeight / 3;
         const contentHeight = (canvasHeight / 3) * 2;
         const qrSize = contentHeight * 0.6 * 0.9;  // 缩小至90%
-        const qrX = canvasWidth - qrSize - 10 * scale;
-        const qrY = canvasHeight - qrSize - 10 * scale - (contentHeight * 0.045 * 1.5) - 20 * scale;  // 上移40px
+        const qrX = canvasWidth - qrSize - 15 * scale;  // 向左移动15px
+        const qrY = canvasHeight - qrSize - 15 * scale - (contentHeight * 0.045 * 1.5) - 20 * scale;  // 向上移动15px
 
         // 创建条形码
         const barcodeCanvas = document.createElement('canvas');
@@ -182,17 +193,26 @@ document.addEventListener('DOMContentLoaded', () => {
         // 当条形码图片加载完成后继续处理
         barcodeImage.onload = () => {
             const qrCanvas = document.createElement('canvas');
-            qrCanvas.width = qrSize;
-            qrCanvas.height = qrSize;
+            qrCanvas.width = qrSize * 1.2;  // 增大20%
+            qrCanvas.height = qrSize * 1.2;  // 增大20%
 
-            QRCode.toCanvas(qrCanvas, qrContent, { width: qrSize, height: qrSize, errorCorrectionLevel: 'H' }, (err) => {
+            QRCode.toCanvas(qrCanvas, qrContent, { 
+                width: qrSize * 1.2, 
+                height: qrSize * 1.2, 
+                errorCorrectionLevel: 'H',  // 使用最高级别的错误纠正
+                margin: 2,  // 增加边距
+                color: {
+                    dark: '#000000',  // 纯黑色
+                    light: '#ffffff'  // 纯白色
+                }
+            }, (err) => {
                 if (err) {
                     console.error('QR Code generation error:', err);
                     return;
                 }
 
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.drawImage(qrCanvas, qrX, qrY, qrSize, qrSize);
+                ctx.drawImage(qrCanvas, qrX, qrY, qrSize * 1.2, qrSize * 1.2);
 
                 // 绘制虚线
                 ctx.setLineDash([10, 5]);
@@ -238,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.restore();
 
                 // 下半部分内容
-                const lowerFontSize = fontSize * 0.9;  // 整体缩小10%
+                const lowerFontSize = fontSize * 0.72;  // 再缩小20%
                 ctx.font = `bold ${lowerFontSize * 1.2}px SimHei`;  // 产品名称字体
                 const productNameY = headerHeight + lowerFontSize * 2;
                 ctx.fillText(lens.product_name, canvasWidth * 0.05, productNameY);
@@ -285,39 +305,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 清理临时SVG元素
                 document.body.removeChild(tempSvg);
 
-                // 添加打印样式
-                const printStyle = document.createElement('style');
-                printStyle.textContent = `
-                    @media print {
-                        @page {
-                            size: A4 portrait;
-                            margin: 0;
-                        }
-                        body {
-                            margin: 0;
-                            padding: 0;
-                        }
-                        .print-container {
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            gap: 10px;
-                            padding: 20px;
-                        }
-                        .print-item {
-                            transform: rotate(90deg);
-                            transform-origin: center;
-                            width: 250px;
-                            height: 375px;
-                            page-break-inside: avoid;
-                        }
-                        img {
-                            max-width: 100%;
-                            height: auto;
-                        }
-                    }
-                `;
-                document.head.appendChild(printStyle);
+                // 将图片添加到结果容器中
+                resultsDiv.appendChild(img);
 
                 callback(img);
             });
